@@ -3,94 +3,184 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@color/brand_green"
     android:orientation="vertical">
 
     <include
         android:id="@+id/header"
         layout="@layout/view_step_header" />
 
-    <com.google.android.material.progressindicator.LinearProgressIndicator
-        android:id="@+id/progress"
+    <!-- Bienvenida sobre fondo verde -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:indeterminate="true"
-        android:visibility="invisible" />
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingBottom="24dp">
 
-    <ScrollView
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/information_title"
+            android:textColor="@color/on_brand"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/information_subtitle_1"
+            android:textColor="@color/on_brand"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/information_subtitle_2"
+            android:textColor="@color/on_brand"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- Hoja gris con esquinas superiores redondeadas -->
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:fillViewport="true">
+        android:background="@drawable/bg_sheet_gray">
 
-        <LinearLayout
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card_white"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="16dp">
+
+                    <!-- Celular -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/Widget.AppBNB.FormLabel"
+                            android:labelFor="@+id/phoneInput"
+                            android:text="@string/label_phone" />
+
+                        <EditText
+                            android:id="@+id/phoneInput"
+                            style="@style/Widget.AppBNB.FormInput"
+                            android:autofillHints="phoneNational"
+                            android:hint="@string/hint_phone"
+                            android:imeOptions="actionNext"
+                            android:importantForAutofill="no"
+                            android:inputType="number" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/phoneError"
+                        style="@style/Widget.AppBNB.FormError" />
+
+                    <View style="@style/Widget.AppBNB.Divider" />
+
+                    <!-- Carnet -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/Widget.AppBNB.FormLabel"
+                            android:labelFor="@+id/identityCardInput"
+                            android:text="@string/label_identity_card" />
+
+                        <EditText
+                            android:id="@+id/identityCardInput"
+                            style="@style/Widget.AppBNB.FormInput"
+                            android:hint="@string/hint_identity_card"
+                            android:imeOptions="actionDone"
+                            android:importantForAutofill="no"
+                            android:inputType="number" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/identityCardError"
+                        style="@style/Widget.AppBNB.FormError" />
+
+                    <View style="@style/Widget.AppBNB.Divider" />
+
+                    <!-- ¿Tiene complemento? -->
+                    <CheckBox
+                        android:id="@+id/hasComplementCheck"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="52dp"
+                        android:paddingStart="8dp"
+                        android:text="@string/label_has_complement"
+                        android:textColor="@color/brand_green"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:buttonTint="@color/brand_green" />
+
+                    <!-- Complemento (visible solo si se marca el check) -->
+                    <LinearLayout
+                        android:id="@+id/complementGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <View style="@style/Widget.AppBNB.Divider" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/Widget.AppBNB.FormLabel"
+                                android:labelFor="@+id/complementInput"
+                                android:text="@string/label_complement" />
+
+                            <EditText
+                                android:id="@+id/complementInput"
+                                style="@style/Widget.AppBNB.FormInput"
+                                android:hint="@string/hint_complement"
+                                android:imeOptions="actionDone"
+                                android:importantForAutofill="no"
+                                android:inputType="textCapCharacters|textNoSuggestions" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/complementError"
+                            style="@style/Widget.AppBNB.FormError" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/progress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="24dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/information_title"
-                android:textAppearance="@style/TextAppearance.AppBNB.Headline" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="24dp"
-                android:text="@string/information_subtitle"
-                android:textAppearance="@style/TextAppearance.AppBNB.Body" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/phoneLayout"
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_phone">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/phoneInput"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:imeOptions="actionNext"
-                    android:inputType="number" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/identityCardLayout"
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:hint="@string/hint_identity_card">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/identityCardInput"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:imeOptions="actionNext"
-                    android:inputType="number" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/complementLayout"
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:hint="@string/hint_complement">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/complementInput"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:imeOptions="actionDone"
-                    android:inputType="textCapCharacters|textNoSuggestions" />
-            </com.google.android.material.textfield.TextInputLayout>
-        </LinearLayout>
-    </ScrollView>
+            android:layout_gravity="top"
+            android:indeterminate="true"
+            android:visibility="invisible" />
+    </FrameLayout>
 
     <FrameLayout
         android:id="@+id/bottomBar"

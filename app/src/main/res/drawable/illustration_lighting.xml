@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="240dp"
+    android:height="150dp"
+    android:viewportWidth="240"
+    android:viewportHeight="150">
+
+    <!-- Haz de la lámpara y brillo del sol -->
+    <path
+        android:fillColor="#99FFF1B8"
+        android:pathData="M54,30H76L98,80H32Z" />
+    <path
+        android:fillColor="#33F5B400"
+        android:pathData="M175,24m-22,0a22,22 0,1 1,44 0a22,22 0,1 1,-44 0" />
+
+    <!-- Persona 1 -->
+    <group
+        android:translateX="65"
+        android:translateY="50">
+        <path
+            android:fillColor="#E0A77C"
+            android:pathData="M-6,52H6V66H-6Z" />
+        <path
+            android:fillColor="#3F7FD0"
+            android:pathData="M-30,100C-30,74 -16,64 0,64C16,64 30,74 30,100Z" />
+        <path
+            android:fillColor="#F4C7A1"
+            android:pathData="M0,32m-22,0a22,22 0,1 1,44 0a22,22 0,1 1,-44 0" />
+        <path
+            android:fillColor="#3E2A20"
+            android:pathData="M-22,30C-26,4 26,4 22,30C16,16 -12,14 -22,30Z" />
+        <path
+            android:fillColor="#2B2B2B"
+            android:pathData="M-8,34m-2.2,0a2.2,2.2 0,1 1,4.4 0a2.2,2.2 0,1 1,-4.4 0M8,34m-2.2,0a2.2,2.2 0,1 1,4.4 0a2.2,2.2 0,1 1,-4.4 0" />
+        <path
+            android:fillColor="#00000000"
+            android:pathData="M-8,42Q0,49 8,42"
+            android:strokeColor="#8A4B2D"
+            android:strokeLineCap="round"
+            android:strokeWidth="2" />
+    </group>
+
+    <!-- Persona 2 -->
+    <group
+        android:translateX="175"
+        android:translateY="50">
+        <path
+            android:fillColor="#E0A77C"
+            android:pathData="M-6,52H6V66H-6Z" />
+        <path
+            android:fillColor="#7FB2E5"
+            android:pathData="M-30,100C-30,74 -16,64 0,64C16,64 30,74 30,100Z" />
+        <path
+            android:fillColor="#F4C7A1"
+            android:pathData="M0,32m-22,0a22,22 0,1 1,44 0a22,22 0,1 1,-44 0" />
+        <path
+            android:fillColor="#2B2B2B"
+            android:pathData="M-22,30C-26,4 26,4 22,30C16,16 -12,14 -22,30Z" />
+        <path
+            android:fillColor="#2B2B2B"
+            android:pathData="M-8,34m-2.2,0a2.2,2.2 0,1 1,4.4 0a2.2,2.2 0,1 1,-4.4 0M8,34m-2.2,0a2.2,2.2 0,1 1,4.4 0a2.2,2.2 0,1 1,-4.4 0" />
+        <path
+            android:fillColor="#00000000"
+            android:pathData="M-8,42Q0,49 8,42"
+            android:strokeColor="#8A4B2D"
+            android:strokeLineCap="round"
+            android:strokeWidth="2" />
+    </group>
+
+    <!-- Lámpara colgante -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M65,0V10"
+        android:strokeColor="#8A949B"
+        android:strokeWidth="2" />
+    <path
+        android:fillColor="#F2B84B"
+        android:pathData="M52,30Q52,12 65,10Q78,12 78,30Z" />
+
+    <!-- Sol -->
+    <path
+        android:fillColor="#F5B400"
+        android:pathData="M175,24m-10,0a10,10 0,1 1,20 0a10,10 0,1 1,-20 0" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M189,24L194,24M184.9,33.9L188.4,37.4M175,38L175,43M165.1,33.9L161.6,37.4M161,24L156,24M165.1,14.1L161.6,10.6M175,10L175,5M184.9,14.1L188.4,10.6"
+        android:strokeColor="#F5B400"
+        android:strokeLineCap="round"
+        android:strokeWidth="2.5" />
+
+    <!-- Checks -->
+    <group
+        android:translateX="102"
+        android:translateY="22">
+        <path
+            android:fillColor="#2E9E5B"
+            android:pathData="M0,0m-9,0a9,9 0,1 1,18 0a9,9 0,1 1,-18 0" />
+        <path
+            android:fillColor="#00000000"
+            android:pathData="M-4.5,0L-1.2,3.5L4.8,-3.2"
+            android:strokeColor="#FFFFFF"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round"
+            android:strokeWidth="2.4" />
+    </group>
+    <group
+        android:translateX="212"
+        android:translateY="22">
+        <path
+            android:fillColor="#2E9E5B"
+            android:pathData="M0,0m-9,0a9,9 0,1 1,18 0a9,9 0,1 1,-18 0" />
+        <path
+            android:fillColor="#00000000"
+            android:pathData="M-4.5,0L-1.2,3.5L4.8,-3.2"
+            android:strokeColor="#FFFFFF"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round"
+            android:strokeWidth="2.4" />
+    </group>
+</vector>

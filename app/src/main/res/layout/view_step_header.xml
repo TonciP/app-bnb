@@ -4,41 +4,54 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/brand_green"
-    android:orientation="vertical"
-    android:paddingHorizontal="8dp"
-    android:paddingTop="4dp"
-    android:paddingBottom="24dp">
+    android:orientation="vertical">
 
-    <ImageButton
-        android:id="@+id/backButton"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/action_back"
-        android:src="@drawable/ic_arrow_back"
-        app:tint="@color/on_brand" />
+    <!-- Barra superior: atrás + título centrado -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
 
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_vertical|start"
+            android:layout_marginStart="4dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/action_back"
+            android:src="@drawable/ic_chevron_back" />
+
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/on_brand"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </FrameLayout>
+
+    <!-- Paso actual: icono, etiqueta, título y progreso -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingHorizontal="16dp"
-        android:paddingTop="4dp">
+        android:paddingHorizontal="20dp"
+        android:paddingBottom="20dp">
 
         <ImageView
             android:id="@+id/stepIcon"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="@drawable/bg_circle_translucent"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@drawable/bg_circle_purple"
             android:importantForAccessibility="no"
-            android:padding="12dp"
-            app:tint="@color/on_brand" />
+            android:padding="15dp" />
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="14dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -46,10 +59,8 @@
                 android:id="@+id/stepLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:alpha="0.85"
-                android:letterSpacing="0.08"
                 android:textColor="@color/on_brand"
-                android:textSize="12sp"
+                android:textSize="11sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -57,8 +68,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/on_brand"
-                android:textSize="22sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/stepProgress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                app:indicatorColor="@color/brand_purple"
+                app:trackColor="#59FFFFFF"
+                app:trackCornerRadius="3dp"
+                app:trackStopIndicatorSize="0dp"
+                app:trackThickness="6dp" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

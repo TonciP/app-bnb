@@ -2,9 +2,9 @@
 
 Flujo de verificación en dos pantallas, hecho en **Java** con arquitectura **MVVM**:
 
-1. **Información (paso 1 de 3)** — celular, carnet y complemento, con validación de longitud y tipo de dato.
+1. **Información (paso 1 / 6)** — celular, carnet y checkbox "¿Tiene complemento?", con validación de longitud y tipo de dato.
 2. **Activa tu ubicación** — bottom sheet previo al diálogo de permiso del sistema.
-3. **Autenticación (paso 2 de 3)** — recomendaciones previas a la prueba, en un carrusel.
+3. **Autenticación (paso 2 / 6)** — carrusel de 4 recomendaciones previas a la prueba, con lectura en voz alta (`TextToSpeech`) desde el ícono de bocina.
 
 La prueba teórica respondida está en [`docs/prueba teorica.docx`](docs/prueba%20teorica.docx).
 
@@ -14,7 +14,7 @@ La prueba teórica respondida está en [`docs/prueba teorica.docx`](docs/prueba%
 |---|---|
 | Número de celular | Obligatorio, solo dígitos, **8** caracteres |
 | Número de carnet | Obligatorio, solo dígitos, **10** caracteres |
-| Complemento | Opcional; si se ingresa, **2** caracteres, solo letras y números (sin símbolos), en mayúsculas |
+| Complemento | Opcional (se muestra al marcar "¿Tiene complemento?"); si se ingresa, **2** caracteres, solo letras y números (sin símbolos), en mayúsculas |
 
 Se aplican en dos niveles: `InputFilter`s que impiden escribir/pegar caracteres inválidos y superar el máximo, y
 `FormValidator` al pulsar *Siguiente*. Las longitudes viven en un solo lugar (`FormValidator`).
@@ -75,4 +75,4 @@ Requiere JDK 17+ y Android SDK 35.
 
 ## Alcance
 
-El botón *Siguiente* del paso 2 recorre las recomendaciones; el paso 3 de 3 no forma parte de la prueba.
+El botón *Siguiente* del paso 2 recorre las recomendaciones; los pasos 3 a 6 no forman parte de la prueba. El total de pasos (6) sale del diseño y está en `StepHeader.TOTAL_STEPS`.

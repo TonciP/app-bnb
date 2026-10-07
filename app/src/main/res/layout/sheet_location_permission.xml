@@ -4,18 +4,20 @@
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:paddingHorizontal="24dp"
+    android:paddingTop="32dp"
+    android:paddingBottom="24dp">
 
     <ImageView
-        android:layout_width="72dp"
-        android:layout_height="72dp"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
         android:importantForAccessibility="no"
         android:src="@drawable/ic_warning_circle" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="@string/location_sheet_title"
         android:textAppearance="@style/TextAppearance.AppBNB.Headline" />
@@ -23,11 +25,12 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="28dp"
         android:gravity="center"
         android:text="@string/location_sheet_message"
-        android:textAppearance="@style/TextAppearance.AppBNB.Body" />
+        android:textAppearance="@style/TextAppearance.AppBNB.Body"
+        android:textSize="13sp" />
 
     <Button
         android:id="@+id/continueButton"

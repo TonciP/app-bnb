@@ -3,31 +3,47 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
+    android:background="@color/brand_green"
     android:orientation="vertical">
 
     <include
         android:id="@+id/header"
         layout="@layout/view_step_header" />
 
+    <!-- Hoja blanca con esquinas superiores redondeadas -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:background="@drawable/bg_sheet_white"
         android:orientation="vertical"
-        android:padding="24dp">
+        android:paddingHorizontal="20dp"
+        android:paddingTop="12dp">
+
+        <ImageButton
+            android:id="@+id/listenButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="end"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/action_listen"
+            android:src="@drawable/ic_volume_up" />
 
         <TextView
+            android:id="@+id/introText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="@string/authentication_intro"
-            android:textAppearance="@style/TextAppearance.AppBNB.Body" />
+            android:textColor="@color/brand_purple"
+            android:textSize="13sp"
+            android:textStyle="bold" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/tipsPager"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="12dp"
             android:layout_weight="1" />
 
         <com.google.android.material.tabs.TabLayout
@@ -39,8 +55,8 @@
             app:tabGravity="center"
             app:tabIndicatorHeight="0dp"
             app:tabMinWidth="0dp"
-            app:tabPaddingEnd="10dp"
-            app:tabPaddingStart="10dp" />
+            app:tabPaddingEnd="8dp"
+            app:tabPaddingStart="8dp" />
     </LinearLayout>
 
     <FrameLayout

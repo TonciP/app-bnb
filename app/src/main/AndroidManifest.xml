@@ -9,6 +9,13 @@
         android:name="android.hardware.location.gps"
         android:required="false" />
 
+    <!-- Necesario desde Android 11 para que TextToSpeech encuentre el motor de voz instalado. -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE" />
+        </intent>
+    </queries>
+
     <application
         android:name=".App"
         android:allowBackup="false"

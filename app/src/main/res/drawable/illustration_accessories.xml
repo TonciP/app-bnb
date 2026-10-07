@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="240dp"
+    android:height="150dp"
+    android:viewportWidth="240"
+    android:viewportHeight="150">
+
+    <!-- Persona con gorra y lentes -->
+    <group
+        android:translateX="65"
+        android:translateY="50">
+        <path
+            android:fillColor="#E0A77C"
+            android:pathData="M-6,52H6V66H-6Z" />
+        <path
+            android:fillColor="#3F7FD0"
+            android:pathData="M-30,100C-30,74 -16,64 0,64C16,64 30,74 30,100Z" />
+        <path
+            android:fillColor="#F4C7A1"
+            android:pathData="M0,32m-22,0a22,22 0,1 1,44 0a22,22 0,1 1,-44 0" />
+        <path
+            android:fillColor="#2B2B2B"
+            android:pathData="M-8,34m-2.2,0a2.2,2.2 0,1 1,4.4 0a2.2,2.2 0,1 1,-4.4 0M8,34m-2.2,0a2.2,2.2 0,1 1,4.4 0a2.2,2.2 0,1 1,-4.4 0" />
+        <path
+            android:fillColor="#00000000"
+            android:pathData="M-8,42Q0,49 8,42"
+            android:strokeColor="#8A4B2D"
+            android:strokeLineCap="round"
+            android:strokeWidth="2" />
+        <!-- Lentes -->
+        <path
+            android:fillColor="#00000000"
+            android:pathData="M-8,35m-6,0a6,6 0,1 1,12,0a6,6 0,1 1,-12,0M8,35m-6,0a6,6 0,1 1,12,0a6,6 0,1 1,-12,0M-2,35H2"
+            android:strokeColor="#1F2933"
+            android:strokeWidth="1.8" />
+        <!-- Gorra -->
+        <path
+            android:fillColor="#2D3E50"
+            android:pathData="M-24,26C-24,0 24,0 24,26Z" />
+        <path
+            android:fillColor="#2D3E50"
+            android:pathData="M-24,24H34Q38,24 38,28H-24Z" />
+    </group>
+
+    <!-- Persona sin accesorios -->
+    <group
+        android:translateX="175"
+        android:translateY="50">
+        <path
+            android:fillColor="#E0A77C"
+            android:pathData="M-6,52H6V66H-6Z" />
+        <path
+            android:fillColor="#7FB2E5"
+            android:pathData="M-30,100C-30,74 -16,64 0,64C16,64 30,74 30,100Z" />
+        <path
+            android:fillColor="#F4C7A1"
+            android:pathData="M0,32m-22,0a22,22 0,1 1,44 0a22,22 0,1 1,-44 0" />
+        <path
+            android:fillColor="#2B2B2B"
+            android:pathData="M-22,30C-26,4 26,4 22,30C16,16 -12,14 -22,30Z" />
+        <path
+            android:fillColor="#2B2B2B"
+            android:pathData="M-8,34m-2.2,0a2.2,2.2 0,1 1,4.4 0a2.2,2.2 0,1 1,-4.4 0M8,34m-2.2,0a2.2,2.2 0,1 1,4.4 0a2.2,2.2 0,1 1,-4.4 0" />
+        <path
+            android:fillColor="#00000000"
+            android:pathData="M-8,42Q0,49 8,42"
+            android:strokeColor="#8A4B2D"
+            android:strokeLineCap="round"
+            android:strokeWidth="2" />
+    </group>
+
+    <!-- Insignia roja (no) -->
+    <group
+        android:translateX="102"
+        android:translateY="22">
+        <path
+            android:fillColor="#E5484D"
+            android:pathData="M0,0m-9,0a9,9 0,1 1,18 0a9,9 0,1 1,-18 0" />
+        <path
+            android:fillColor="#00000000"
+            android:pathData="M-3.5,-3.5L3.5,3.5M3.5,-3.5L-3.5,3.5"
+            android:strokeColor="#FFFFFF"
+            android:strokeLineCap="round"
+            android:strokeWidth="2.4" />
+    </group>
+
+    <!-- Insignia verde (sí) -->
+    <group
+        android:translateX="212"
+        android:translateY="22">
+        <path
+            android:fillColor="#2E9E5B"
+            android:pathData="M0,0m-9,0a9,9 0,1 1,18 0a9,9 0,1 1,-18 0" />
+        <path
+            android:fillColor="#00000000"
+            android:pathData="M-4.5,0L-1.2,3.5L4.8,-3.2"
+            android:strokeColor="#FFFFFF"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round"
+            android:strokeWidth="2.4" />
+    </group>
+</vector>

@@ -7,7 +7,7 @@
         <item name="colorOnPrimaryContainer">@color/brand_green_dark</item>
         <item name="android:colorBackground">@color/background</item>
         <item name="colorSurface">@color/surface</item>
-        <item name="android:windowBackground">@color/background</item>
+        <item name="android:windowBackground">@color/brand_green</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="bottomSheetDialogTheme">@style/ThemeOverlay.AppBNB.BottomSheet</item>
@@ -17,17 +17,56 @@
 
     <style name="Widget.AppBNB.PrimaryButton" parent="Widget.Material3.Button">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">56dp</item>
+        <item name="android:layout_height">52dp</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textAllCaps">false</item>
     </style>
 
-    <style name="TextAppearance.AppBNB.Headline" parent="TextAppearance.Material3.HeadlineSmall">
+    <style name="TextAppearance.AppBNB.Headline" parent="TextAppearance.Material3.TitleLarge">
         <item name="android:textColor">@color/text_primary</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="TextAppearance.AppBNB.Body" parent="TextAppearance.Material3.BodyLarge">
+    <style name="TextAppearance.AppBNB.Body" parent="TextAppearance.Material3.BodyMedium">
         <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+    <!-- Fila del formulario: etiqueta a la izquierda y valor alineado a la derecha. -->
+    <style name="Widget.AppBNB.FormLabel" parent="">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Widget.AppBNB.FormInput" parent="">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginStart">12dp</item>
+        <item name="android:background">@null</item>
+        <item name="android:gravity">end|center_vertical</item>
+        <item name="android:minHeight">56dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textColorHint">@color/text_hint</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Widget.AppBNB.FormError" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:gravity">end</item>
+        <item name="android:textColor">@color/error</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="Widget.AppBNB.Divider" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/divider</item>
     </style>
 </resources>

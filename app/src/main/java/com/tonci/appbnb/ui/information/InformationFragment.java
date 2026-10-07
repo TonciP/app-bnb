@@ -2,6 +2,7 @@ package com.tonci.appbnb.ui.information;
 
 import android.Manifest;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -13,7 +14,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -26,7 +29,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.textfield.TextInputLayout;
 import com.tonci.appbnb.App;
 import com.tonci.appbnb.R;
 import com.tonci.appbnb.databinding.FragmentInformationBinding;
@@ -35,6 +37,7 @@ import com.tonci.appbnb.domain.validation.FormValidator;
 import com.tonci.appbnb.domain.validation.ValidationError;
 import com.tonci.appbnb.ui.common.InputFilters;
 import com.tonci.appbnb.ui.common.InsetsHelper;
+import com.tonci.appbnb.ui.common.StepHeader;
 import com.tonci.appbnb.ui.location.LocationPermissionBottomSheet;
 
 /** Paso 1 de 3: captura celular, carnet y complemento, y asegura el permiso de ubicación. */
@@ -89,11 +92,8 @@ public class InformationFragment extends Fragment {
     }
 
     private void setupHeader() {
-        binding.header.stepLabel.setText(getString(R.string.step_label_format, 1, 3));
-        binding.header.stepTitle.setText(R.string.step_information);
-        binding.header.stepIcon.setImageResource(R.drawable.ic_person);
-        binding.header.backButton.setOnClickListener(
-                v -> requireActivity().getOnBackPressedDispatcher().onBackPressed());
+        StepHeader.bind(binding.header, 1, R.string.step_information, R.drawable.ic_add,
+                () -> requireActivity().getOnBackPressedDispatcher().onBackPressed());
     }
 
     private void setupInputs() {
@@ -103,10 +103,21 @@ public class InformationFragment extends Fragment {
         binding.complementInput.setFilters(
                 InputFilters.alphanumericUpperCase(FormValidator.COMPLEMENT_LENGTH));
 
-        clearErrorOnEdit(binding.phoneInput, binding.phoneLayout);
-        clearErrorOnEdit(binding.identityCardInput, binding.identityCardLayout);
-        clearErrorOnEdit(binding.complementInput, binding.complementLayout);
+        clearErrorOnEdit(binding.phoneInput, binding.phoneError);
+        clearErrorOnEdit(binding.identityCardInput, binding.identityCardError);
+        clearErrorOnEdit(binding.complementInput, binding.complementError);
 
+        binding.hasComplementCheck.setOnCheckedChangeListener(
+                (button, checked) -> setComplementVisible(checked));
+        setComplementVisible(binding.hasComplementCheck.isChecked());
+
+        binding.identityCardInput.setOnEditorActionListener((v, actionId, event) -> {
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                hideKeyboard(v);
+                return true;
+            }
+            return false;
+        });
         binding.complementInput.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_DONE) {
                 onNextClicked();
@@ -116,22 +127,37 @@ public class InformationFragment extends Fragment {
         });
     }
 
+    /** El complemento es opcional: solo se muestra, valida y envía si el usuario lo indica. */
+    private void setComplementVisible(boolean visible) {
+        binding.complementGroup.setVisibility(visible ? View.VISIBLE : View.GONE);
+        if (!visible) {
+            binding.complementInput.setText("");
+            showError(binding.complementError, null);
+        }
+    }
+
     private void onNextClicked() {
+        hideKeyboard(binding.nextButton);
         viewModel.onNextClicked(
                 textOf(binding.phoneInput),
                 textOf(binding.identityCardInput),
-                textOf(binding.complementInput),
+                binding.hasComplementCheck.isChecked() ? textOf(binding.complementInput) : "",
                 hasLocationPermission());
     }
 
     // ---- Render ----
 
     private void renderErrors(FormErrors errors) {
-        binding.phoneLayout.setError(numericErrorText(errors.getPhone(),
+        showError(binding.phoneError, numericErrorText(errors.getPhone(),
                 R.string.error_phone_required, R.string.error_phone_length));
-        binding.identityCardLayout.setError(numericErrorText(errors.getIdentityCard(),
+        showError(binding.identityCardError, numericErrorText(errors.getIdentityCard(),
                 R.string.error_identity_card_required, R.string.error_identity_card_length));
-        binding.complementLayout.setError(complementErrorText(errors.getComplement()));
+        showError(binding.complementError, complementErrorText(errors.getComplement()));
+    }
+
+    private static void showError(TextView view, @Nullable String message) {
+        view.setText(message);
+        view.setVisibility(message == null ? View.GONE : View.VISIBLE);
     }
 
     @Nullable
@@ -156,9 +182,10 @@ public class InformationFragment extends Fragment {
     private void renderLoading(boolean loading) {
         binding.progress.setVisibility(loading ? View.VISIBLE : View.INVISIBLE);
         binding.nextButton.setEnabled(!loading);
-        binding.phoneLayout.setEnabled(!loading);
-        binding.identityCardLayout.setEnabled(!loading);
-        binding.complementLayout.setEnabled(!loading);
+        binding.phoneInput.setEnabled(!loading);
+        binding.identityCardInput.setEnabled(!loading);
+        binding.complementInput.setEnabled(!loading);
+        binding.hasComplementCheck.setEnabled(!loading);
     }
 
     // ---- Eventos del ViewModel ----
@@ -249,14 +276,20 @@ public class InformationFragment extends Fragment {
         return text == null ? "" : text.toString();
     }
 
-    private static void clearErrorOnEdit(EditText input, TextInputLayout layout) {
+    private void hideKeyboard(View view) {
+        InputMethodManager imm = (InputMethodManager)
+                requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (imm != null) imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+    private static void clearErrorOnEdit(EditText input, TextView errorView) {
         input.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (layout.getError() != null) layout.setError(null);
+                if (errorView.getVisibility() == View.VISIBLE) showError(errorView, null);
             }
 
             @Override
