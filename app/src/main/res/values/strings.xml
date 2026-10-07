@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">App BNB</string>
+
+    <!-- Encabezado de pasos -->
+    <string name="step_label_format">PASO %1$d DE %2$d</string>
+    <string name="step_information">Información</string>
+    <string name="step_authentication">Autenticación</string>
+    <string name="action_back">Atrás</string>
+
+    <!-- Acciones -->
+    <string name="action_next">Siguiente</string>
+    <string name="action_continue">Continuar</string>
+    <string name="action_settings">Ajustes</string>
+
+    <!-- Paso 1: Información -->
+    <string name="information_title">Ingresa tus datos</string>
+    <string name="information_subtitle">Completa los siguientes datos para comenzar con la verificación de tu identidad.</string>
+    <string name="hint_phone">Número de celular</string>
+    <string name="hint_identity_card">Número de carnet</string>
+    <string name="hint_complement">Complemento (opcional)</string>
+
+    <string name="error_phone_required">Ingresa tu número de celular</string>
+    <string name="error_phone_length">El número de celular debe tener 8 dígitos</string>
+    <string name="error_identity_card_required">Ingresa tu número de carnet</string>
+    <string name="error_identity_card_length">El número de carnet debe tener 10 dígitos</string>
+    <string name="error_digits_only">Solo se permiten números</string>
+    <string name="error_complement_length">El complemento debe tener 2 caracteres</string>
+    <string name="error_alphanumeric_only">Solo letras y números, sin caracteres especiales</string>
+
+    <!-- Permiso de ubicación -->
+    <string name="location_sheet_title">Activa tu ubicación</string>
+    <string name="location_sheet_message">Para continuar con la verificación necesitamos acceder a la ubicación de tu dispositivo. A continuación se te pedirá autorización.</string>
+    <string name="message_location_denied">Necesitamos tu ubicación para continuar.</string>
+    <string name="message_location_denied_permanently">El permiso de ubicación está desactivado. Habilítalo en los ajustes de la aplicación.</string>
+    <string name="message_location_disabled">Activa la ubicación (GPS) de tu dispositivo para continuar.</string>
+    <string name="message_location_unavailable">No pudimos obtener tu ubicación. Inténtalo nuevamente.</string>
+
+    <!-- Errores del servicio -->
+    <string name="message_network">Sin conexión. Verifica tu internet e inténtalo nuevamente.</string>
+    <string name="message_server">El servicio no está disponible por el momento. Inténtalo más tarde.</string>
+    <string name="message_unknown">Ocurrió un error inesperado. Inténtalo nuevamente.</string>
+
+    <!-- Paso 2: Autenticación -->
+    <string name="authentication_intro">Antes de comenzar con la prueba de autenticación, te recomendamos:</string>
+    <string name="tip_lighting">Sitúate en un lugar con buena iluminación.</string>
+    <string name="tip_accessories">Retira lentes, gorra o cualquier accesorio que cubra tu rostro.</string>
+    <string name="tip_camera">Sostén el teléfono a la altura de tus ojos y mira de frente a la cámara.</string>
+    <string name="message_next_step_pending">El paso 3 de 3 no forma parte de esta prueba.</string>
+</resources>

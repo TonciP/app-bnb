@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/informationFragment">
+
+    <fragment
+        android:id="@+id/informationFragment"
+        android:name="com.tonci.appbnb.ui.information.InformationFragment"
+        android:label="InformationFragment">
+        <action
+            android:id="@+id/action_information_to_authentication"
+            app:destination="@id/authenticationFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/authenticationFragment"
+        android:name="com.tonci.appbnb.ui.authentication.AuthenticationFragment"
+        android:label="AuthenticationFragment" />
+</navigation>

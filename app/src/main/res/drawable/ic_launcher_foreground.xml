@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Escudo con check, dentro de la zona segura del icono adaptativo -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,30L36,37v13c0,11.2 7.7,21.7 18,24.3 10.3,-2.6 18,-13.1 18,-24.3V37L54,30z" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M46,52l6,6 11,-12"
+        android:strokeColor="#0F7A41"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:strokeWidth="4" />
+</vector>

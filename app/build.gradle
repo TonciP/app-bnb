@@ -1,0 +1,67 @@
+plugins {
+    alias(libs.plugins.android.application)
+}
+
+android {
+    namespace 'com.tonci.appbnb'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'com.tonci.appbnb'
+        minSdk 24
+        targetSdk 35
+        versionCode 1
+        versionName '1.0'
+    }
+
+    buildTypes {
+        debug {
+            // Sin backend real: las respuestas del servicio se simulan localmente.
+            buildConfigField 'boolean', 'USE_MOCK_API', 'true'
+            buildConfigField 'String', 'BASE_URL', '"https://api.example.com/"'
+        }
+        release {
+            // Apuntar BASE_URL al backend real antes de publicar.
+            buildConfigField 'boolean', 'USE_MOCK_API', 'false'
+            buildConfigField 'String', 'BASE_URL', '"https://api.example.com/"'
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildFeatures {
+        viewBinding true
+        buildConfig true
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+}
+
+dependencies {
+    implementation libs.androidx.appcompat
+    implementation libs.androidx.core
+    implementation libs.androidx.activity
+    implementation libs.androidx.fragment
+    implementation libs.androidx.constraintlayout
+    implementation libs.androidx.lifecycle.viewmodel
+    implementation libs.androidx.lifecycle.livedata
+    implementation libs.androidx.navigation.fragment
+    implementation libs.androidx.navigation.ui
+    implementation libs.androidx.viewpager2
+    implementation libs.material
+
+    implementation libs.retrofit
+    implementation libs.retrofit.converter.gson
+    implementation libs.okhttp
+
+    testImplementation libs.junit
+    testImplementation libs.androidx.arch.core.testing
+}
